@@ -4,13 +4,8 @@ import { Link } from 'react-router-dom';
 import { KeycloakContext } from '../KeycloakWrapper';
 
 export class AppLayout extends Component<{}, IAppLayoutState> {
-    state = {
-        isProfileOpen: false,
-    };
 
     private renderProfileMenu() {
-        const { isProfileOpen } = this.state;
-
         return (
             <div className="pf-c-page__header-tools-group">
                 <div className="pf-m-user">
@@ -54,6 +49,7 @@ export class AppLayout extends Component<{}, IAppLayoutState> {
                                             onClick={() =>
                                                 value.keycloak.logout()
                                             }
+                                            href="#logout"
                                         >
                                             Logout
                                         </a>
@@ -67,7 +63,7 @@ export class AppLayout extends Component<{}, IAppLayoutState> {
         );
     }
 
-    private renderSidenavItem(section: IApp[]) {
+    private static renderSidenavItem(section: IApp[]) {
         return (
             <ul className="pf-c-nav__simple-list">
                 {section.map(app => {
@@ -112,7 +108,7 @@ export class AppLayout extends Component<{}, IAppLayoutState> {
                                     >
                                         {section.heading}
                                     </h2>
-                                    {this.renderSidenavItem(section.apps)}
+                                    {AppLayout.renderSidenavItem(section.apps)}
                                 </section>
                             );
                         })}
@@ -147,7 +143,7 @@ export class AppLayout extends Component<{}, IAppLayoutState> {
                                 <i className="fas fa-bars" aria-hidden="true" />
                             </button>
                         </div>
-                        <a className="pf-c-page__header-brand-link">
+                        <a className="pf-c-page__header-brand-link" href={'/'}>
                             <img
                                 className="pf-c-brand"
                                 src={process.env.REACT_APP_COMPANY_LOGO_URL}
@@ -161,7 +157,9 @@ export class AppLayout extends Component<{}, IAppLayoutState> {
                 </header>
                 {this.renderSidenav()}
                 <main role="main" className="pf-c-page__main">
-                    <a id="main-content-page-layout-grouped-nav" />
+                    <a id="main-content-page-layout-grouped-nav" style={{ display: 'none' }} href={'/'}>
+                        Page
+                    </a>
                     <section className="pf-c-page__main-section pf-m-light">
                         <div className="pf-c-content">
                             {this.props.children}
@@ -177,5 +175,4 @@ export class AppLayout extends Component<{}, IAppLayoutState> {
 }
 
 export interface IAppLayoutState {
-    isProfileOpen: boolean;
 }
