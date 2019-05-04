@@ -1,0 +1,16 @@
+@import "~@patternfly/patternfly/patternfly.css";
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.main-content {
+    min-height: 100vh;
+}
+
+.ContainerPage {
+    > .pf-c-form {
+        max-width: 600px;
+    }
+}

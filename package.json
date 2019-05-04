@@ -3,19 +3,25 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@patternfly/patternfly": "^1.0.248",
-    "@patternfly/react-core": "^2.11.1",
+    "@patternfly/patternfly": "^2.6.6",
+    "axios": "^0.18.0",
+    "keycloak-js": "^6.0.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.0"
+  },
+  "devDependencies": {
     "@types/jest": "24.0.12",
     "@types/node": "12.0.0",
     "@types/react": "16.8.16",
     "@types/react-dom": "16.8.4",
-    "axios": "^0.18.0",
-    "keycloak-js": "^6.0.1",
-    "moment": "^2.22.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-router-dom": "^5.0.0",
+    "@types/react-router-dom": "^4.3.2",
+    "node-sass": "^4.12.0",
+    "prettier": "^1.17.0",
     "react-scripts": "3.0.0",
+    "tslint": "^5.16.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-react": "^4.0.0",
     "typescript": "3.4.5"
   },
   "scripts": {
@@ -26,6 +32,14 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "tabWidth": 4,
+    "semi": true,
+    "singleQuote": true,
+    "jsxBracketSameLine": false,
+    "parser": "typescript"
   },
   "browserslist": {
     "production": [
